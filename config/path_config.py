@@ -1,0 +1,1 @@
+presist_dir = "db/chroma_db"

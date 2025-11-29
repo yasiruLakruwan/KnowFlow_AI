@@ -1,0 +1,11 @@
+langchain
+langchain_openai
+langchain_chroma
+python_dotenv
+sentence-transformers
+langchain-huggingface
+langchain_google_genai
+pandas
+numpy
+langchain_google_genai
+langchain-community
