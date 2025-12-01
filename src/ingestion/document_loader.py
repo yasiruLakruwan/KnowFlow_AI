@@ -4,7 +4,7 @@ from logger import get_logger
 
 logger = get_logger(__name__)
 
-class DataIngestion:
-    def __init__(self,data_path):
-        self.data_path = data_path
-        
+
+class DocumentLoader:
+    def __init__(self):
+        pass
