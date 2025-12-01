@@ -1,6 +1,12 @@
+README.md
 setup.py
 KnowFlow_AI_RAG.egg-info/PKG-INFO
 KnowFlow_AI_RAG.egg-info/SOURCES.txt
 KnowFlow_AI_RAG.egg-info/dependency_links.txt
 KnowFlow_AI_RAG.egg-info/requires.txt
 KnowFlow_AI_RAG.egg-info/top_level.txt
+config/__init__.py
+config/path_config.py
+src/__init__.py
+utils/__init__.py
+utils/embeding_model.py

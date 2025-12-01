@@ -1,0 +1,2 @@
+from loader_base import DocumentLoader
+import pypdf
