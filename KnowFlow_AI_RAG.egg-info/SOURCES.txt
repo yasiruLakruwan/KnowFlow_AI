@@ -8,5 +8,8 @@ KnowFlow_AI_RAG.egg-info/top_level.txt
 config/__init__.py
 config/path_config.py
 src/__init__.py
+tests/__init__.py
+tests/test_directry_loader.py
+tests/test_pdf_loader.py
 utils/__init__.py
 utils/embeding_model.py

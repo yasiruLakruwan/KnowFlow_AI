@@ -11,3 +11,4 @@ langchain_google_genai
 langchain-community
 pypdf
 pytest
+fpdf2

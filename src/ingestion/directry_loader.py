@@ -1,6 +1,6 @@
 import os
-from pdf_loader import PdfLoader
-from loader_base import DocumentLoader
+from .pdf_loader import PdfLoader
+from .loader_base import DocumentLoader
 from config.path_config import presist_dir
 
 class DirectryLoader(DocumentLoader):
