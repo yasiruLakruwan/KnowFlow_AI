@@ -1,4 +1,4 @@
-from loader_base import DocumentLoader
+from .loader_base import DocumentLoader
 import pypdf
 
 # Create pdf loader using inheritance....
@@ -13,5 +13,4 @@ class PdfLoader(DocumentLoader):
         for page in reader.pages:
             text += page.extract_text()
         return text
-    
     
