@@ -8,6 +8,14 @@ KnowFlow_AI_RAG.egg-info/top_level.txt
 config/__init__.py
 config/path_config.py
 src/__init__.py
+src/ingestion/__init__.py
+src/ingestion/chunker.py
+src/ingestion/directry_loader.py
+src/ingestion/embedder.py
+src/ingestion/loader_base.py
+src/ingestion/pdf_loader.py
+src/ingestion/pipeline.py
+src/ingestion/text_cleaner.py
 tests/__init__.py
 tests/test_directry_loader.py
 tests/test_pdf_loader.py

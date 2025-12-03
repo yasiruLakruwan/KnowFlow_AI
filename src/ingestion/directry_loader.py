@@ -1,6 +1,6 @@
 import os
-from .pdf_loader import PdfLoader
-from .loader_base import DocumentLoader
+from pdf_loader import PdfLoader
+from loader_base import DocumentLoader
 from config.path_config import presist_dir
 
 class DirectryLoader(DocumentLoader):
@@ -15,3 +15,16 @@ class DirectryLoader(DocumentLoader):
                 loader = PdfLoader(pdf_path)
                 documents.append(loader.load()) 
         return documents
+    
+
+if __name__=="__main__":
+    loader = DirectryLoader(presist_dir)
+    documents = loader.load()
+
+    for i,doc in enumerate(documents):
+        if i<2 :
+            print(f"--------Document {i+1}--------")
+            print(doc)
+
+            ## 
+

@@ -1,1 +1,1 @@
-presist_dir = "db/chroma_db"
+presist_dir = "docs"

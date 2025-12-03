@@ -1,4 +1,4 @@
-from .loader_base import DocumentLoader
+from loader_base import DocumentLoader
 import pypdf
 
 # Create pdf loader using inheritance....
