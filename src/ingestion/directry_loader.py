@@ -23,8 +23,5 @@ if __name__=="__main__":
 
     for i,doc in enumerate(documents):
         if i<2 :
-            print(f"--------Document {i+1}--------")
-            print(doc)
-
-            ## 
-
+            print(f"----------Document--{i+1}--------")
+            print(doc) 
