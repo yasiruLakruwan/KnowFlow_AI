@@ -25,3 +25,6 @@ if __name__=="__main__":
         if i<2 :
             print(f"----------Document--{i+1}--------")
             print(doc) 
+
+
+
