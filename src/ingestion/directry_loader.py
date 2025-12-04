@@ -2,6 +2,7 @@ import os
 from pdf_loader import PdfLoader
 from loader_base import DocumentLoader
 from config.path_config import presist_dir
+from text_cleaner import TextCleaner
 
 class DirectryLoader(DocumentLoader):
     def __init__(self,directry_path):
@@ -12,9 +13,11 @@ class DirectryLoader(DocumentLoader):
         for file in os.listdir(self.directry_path):
             if file.lower().endswith(".pdf"):
                 pdf_path = os.path.join(self.directry_path,file)
-                loader = PdfLoader(pdf_path)
-                documents.append(loader.load()) 
-        return documents
+                loader = PdfLoader(pdf_path) 
+                doc = loader.load()
+                doc = TextCleaner.clean_text(doc)
+                documents.append(doc) 
+        return documents 
     
 
 if __name__=="__main__":
