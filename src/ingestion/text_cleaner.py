@@ -35,6 +35,9 @@ class TextCleaner:
         return text
 
 if __name__=="__main__":
+
+    # testing the class.................
+    
     text = TextCleaner.clean_text("""
         So this is recap where we’re talking about in the previous lecture, remember the notation
 I defined was that I used this X superscript I, Y superscript I to denote the I training
