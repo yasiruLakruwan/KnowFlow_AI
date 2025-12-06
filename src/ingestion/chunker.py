@@ -34,3 +34,17 @@ class TextChunking:
             chunks.append(" ".join(current_chunk))
 
         return chunks   
+
+    def chunk(self,text:str)->List[str]:
+        """
+        Full pipeline
+        1. Split by semantic section
+        2. Chunk cleanly
+        """
+        all_chunks = []
+        sections = self.split_into_sections(text)
+
+        for section in sections:
+            all_chunks.extend(self.chunk_section(section))
+        
+        return all_chunks
