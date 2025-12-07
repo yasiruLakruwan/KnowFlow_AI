@@ -18,7 +18,7 @@ class TextChunking:
         try:
             logger.info("Start section spliting...")
 
-            pattern = r"\n\s*(?P<header>[A-Z][A-Za-z0-9 ]{3,})\s*\n" # headings in PDF
+            pattern = r"\n\s*(?P<header>[A-Z][A-Za-z0-9 ]{3,})\s*\n"   # headings in PDF
             matches = list(re.finditer(pattern,text))
 
             sections = []
