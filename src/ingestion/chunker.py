@@ -70,7 +70,7 @@ class TextChunking:
 
         chunk_index = 0
         source_name = source.replace(".pdf"," ").replace(" ","_")
-
+        # adding metadata....
         for section_title,section_text in sections:
             chunked_texts = self.chunk_section(section_text)
             for chunk_text in chunked_texts:
@@ -88,6 +88,7 @@ class TextChunking:
 # Testing the class........
 
 if __name__=="__main__":
+
     chunker = TextChunking(700,70)
     sample_text = """
         INTRODUCTION
@@ -106,3 +107,4 @@ if __name__=="__main__":
         print(f"section: {i+1}------")
         print(chunk)
 
+        
