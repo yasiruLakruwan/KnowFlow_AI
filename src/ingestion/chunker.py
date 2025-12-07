@@ -18,9 +18,21 @@ class TextChunking:
         try:
             logger.info("Start section spliting...")
 
-            pattern = r"\n(?=(?:[A-Z][A-Za-z0-9 ]{3,}\n))"  # headings in PDF
-            sections = re.split(pattern,text)
-            return [s.strip() for s in sections if s.strip()]
+            pattern = r"(?P<header>[A-Z][A-Za-z0-9 ]{3,})\n" # headings in PDF
+            matches = list(re.finditer(pattern,text))
+
+            sections = []
+
+            for i,match in enumerate(matches):
+                start = match.end()
+                end = matches[i+1].start() if i+1 < len(matches) else len(text) 
+
+                header = match.group("header").strip()
+                body = text[start:end].strip()
+
+                sections.append((header,body))   
+
+            return sections
         
         except Exception as e:
             logger.error(f"Error while sections spliting")
@@ -59,7 +71,7 @@ class TextChunking:
         """
         all_chunks = []
         sections = self.split_into_sections(text)
-
+        
         for section in sections:
             all_chunks.extend(self.chunk_section(section))
         
