@@ -18,7 +18,7 @@ class TextChunking:
         try:
             logger.info("Start section spliting...")
 
-            pattern = r"(?P<header>[A-Z][A-Za-z0-9 ]{3,})\n" # headings in PDF
+            pattern = r"\n\s*(?P<header>[A-Z][A-Za-z0-9 ]{3,})\s*\n" # headings in PDF
             matches = list(re.finditer(pattern,text))
 
             sections = []
@@ -63,19 +63,29 @@ class TextChunking:
             logger.error(f"Error while chunking....")
             raise CustomExeption(f"Error while data chunking",e)
         
-    def chunk(self,text:str)->List[str]:
-        """
-        Full pipeline
-        1. Split by semantic section
-        2. Chunk cleanly
-        """
-        all_chunks = []
+    def chunk(self,text:str,source:str)->List[str]:
+        """ Chunking the sections and section body.. """
+        all_chunks= []
         sections = self.split_into_sections(text)
-        
-        for section in sections:
-            all_chunks.extend(self.chunk_section(section))
-        
+
+        chunk_index = 0
+        source_name = source.replace(".pdf"," ").replace(" ","_")
+
+        for section_title,section_text in sections:
+            chunked_texts = self.chunk_section(section_text)
+            for chunk_text in chunked_texts:
+                all_chunks.append({
+                    "id":f"{source_name}-chunk-{chunk_index}",
+                    "section":section_title,
+                    "source":source_name,
+                    "content":chunk_text
+                })
+
+                chunk_index += 1
+
         return all_chunks
+    
+# Testing the class........
 
 if __name__=="__main__":
     chunker = TextChunking(700,70)
@@ -90,8 +100,9 @@ if __name__=="__main__":
             diagrams and more documentation.
     """
 
-    all_chunks = chunker.chunk(sample_text)
+    all_chunks = chunker.chunk(sample_text,"System Design Document.pdf")
     for i,chunk in enumerate(all_chunks):  
        if i<=2:  
         print(f"section: {i+1}------")
         print(chunk)
+
