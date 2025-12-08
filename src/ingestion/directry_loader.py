@@ -1,7 +1,7 @@
 import os
 from pdf_loader import PdfLoader
 from loader_base import DocumentLoader
-from config.path_config import presist_dir
+from config.path_config import presist_dir,data_dir
 from text_cleaner import TextCleaner
 
 class DirectryLoader(DocumentLoader):
@@ -16,18 +16,24 @@ class DirectryLoader(DocumentLoader):
                 loader = PdfLoader(pdf_path) 
                 doc = loader.load()
                 doc = TextCleaner.clean_text(doc)
-                documents.append(doc) 
+                documents.append({
+                    'filename':file,
+                    'content': doc
+                }) 
         return documents 
     
 
 if __name__=="__main__":
-    loader = DirectryLoader(presist_dir)
+    loader = DirectryLoader(data_dir)
     documents = loader.load()
 
-    for i,doc in enumerate(documents):
-        if i<2 :
-            print(f"----------Document--{i+1}--------")
-            print(doc) 
+    for index,item in enumerate(documents):
+        if index<2 :
+            print(f"----------Document--{index+1}--------")
+            print(f"---------{item['filename']}---------------") 
+            print(f"---------{item['content'][:200]}---------------") 
+
+        
 
 
 
