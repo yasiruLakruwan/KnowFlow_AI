@@ -19,13 +19,17 @@ class VectorStore:
         try:
             logger.info("Vector db initialized.....")
             # Create vector store
-            os.makedirs(presist_dir,exist_ok=True)
+            if os.path.exists(presist_dir):
+                print(f"Vectordb exist in {presist_dir}")
+            else:
+                os.makedirs(presist_dir,exist_ok=True)
 
-            db = Chroma(
-                embedding_function=self.embeding_model,
-                presist_dir = self.presist_dir
-            )
+                db = Chroma(
+                    embedding_function=self.embeding_model,
+                    presist_dir = self.presist_dir
+                )
             return db
+        
         except Exception as e:
             logger.error(f"Error happened when initialized the vector db.....")
             raise CustomExeption(f"Error while embedings",e)
