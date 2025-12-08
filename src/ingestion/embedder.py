@@ -18,4 +18,4 @@ class EmbeddingGenarater:
         self.embed_model = embeding_model()
         self.gem_model = gemini_model()
 
-
+        
