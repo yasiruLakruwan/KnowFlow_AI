@@ -49,7 +49,7 @@ class TextChunking:
 
             current_chunk = []
 
-            for word in words:
+            for word in words: 
                 current_chunk.append(word)
                 if len(" ".join(current_chunk)) >= self.max_chunk_size:
                     chunks.append(" ".join(current_chunk))

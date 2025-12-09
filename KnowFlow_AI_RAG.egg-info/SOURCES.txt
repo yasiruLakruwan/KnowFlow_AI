@@ -16,6 +16,7 @@ src/ingestion/loader_base.py
 src/ingestion/pdf_loader.py
 src/ingestion/pipeline.py
 src/ingestion/text_cleaner.py
+src/ingestion/vector_store.py
 tests/__init__.py
 tests/test_directry_loader.py
 tests/test_pdf_loader.py

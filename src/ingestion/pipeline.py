@@ -52,6 +52,7 @@ def pipeline():
                     all_chunks.append(chunks_with_meta)
 
         logger.info(f"Created all chunks {len(all_chunks)}")
+        print(type(all_chunks))
         #return all_chunks
 
         # Doing emberdings......
@@ -60,7 +61,7 @@ def pipeline():
             embedding_molel = embeding_model()
             # geminii_model = gemini_model()
 
-            vector_db = VectorStore(presist_dir,embedding_molel)
+            vector_db = VectorStore(presist_dir,embedding_molel,all_chunks)
 
             logger.info("Create vectorstore....")
             vector_db.create_vector_store()
@@ -72,7 +73,7 @@ def pipeline():
             
         except Exception as e:
             logger.error("Error happening embeddings")
-            raise CustomExeption(f"Error happening in embeddings")
+            raise CustomExeption(f"Error happening in embeddings") 
     
     except Exception as e:
         raise CustomExeption(f"Error running the ingestion pipeline....",e)

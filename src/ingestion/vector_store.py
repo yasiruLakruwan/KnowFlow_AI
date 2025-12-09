@@ -11,11 +11,11 @@ logger = get_logger(__name__)
 # Creating vectorstore
 
 class VectorStore:
-    def __init__(self,presist_dir,embeding_model):
+    def __init__(self,presist_dir,embeding_model,chunks):
         self.presist_dir = presist_dir
         self.embeding_model = embeding_model
         self.db = None    # Store Chroma instance
-        self.chunks =None
+        self.chunks = chunks
     
     def create_vector_store(self):
         try:
