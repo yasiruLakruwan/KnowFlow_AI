@@ -40,12 +40,12 @@ def pipeline():
 
             logger.info("Getting sections and chunk sections....")
             
-            for filename,text in sections :
-                chunks = chunker.chunk_section(text)
+            for header,body in sections :
+                chunks = chunker.chunk_section(body)
 
                 logger.info("adding metadata to the chunks.....")
                 for chunk in chunks:
-                    chunks_with_meta = chunker.chunk(chunk,filename)
+                    chunks_with_meta = chunker.chunk(chunk,header)
                     all_chunks.append(chunks_with_meta)
 
         logger.info(f"Created all chunks {len(all_chunks)}")

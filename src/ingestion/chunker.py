@@ -58,7 +58,8 @@ class TextChunking:
             if current_chunk:
                 chunks.append(" ".join(current_chunk))
 
-            return chunks   
+            return chunks 
+          
         except Exception as e:
             logger.error(f"Error while chunking....")
             raise CustomExeption(f"Error while data chunking",e)
@@ -87,24 +88,23 @@ class TextChunking:
     
 # Testing the class........
 
-if __name__=="__main__":
+'''if __name__=="__main__":
 
     chunker = TextChunking(700,70)
     sample_text = """
-        INTRODUCTION
-            This is a simple explanation text that goes on and on. 
-            We are testing chunking. It should split into multiple chunks 
-            based on the max chunk size.
+        #INTRODUCTION
+        #    This is a simple explanation text that goes on and on. 
+        #    We are testing chunking. It should split into multiple chunks 
+        #    based on the max chunk size.
 
-        SYSTEM DESIGN
-            This section explains how the system works. It contains architecture 
-            diagrams and more documentation.
+        #SYSTEM DESIGN
+        #    This section explains how the system works. It contains architecture 
+        #    diagrams and more documentation.
     """
 
     all_chunks = chunker.chunk(sample_text,"System Design Document.pdf")
     for i,chunk in enumerate(all_chunks):  
        if i<=2:  
         print(f"section: {i+1}------")
-        print(chunk)
-
+        print(chunk) '''
         
