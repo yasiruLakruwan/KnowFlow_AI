@@ -4,6 +4,9 @@ from embedder import EmbeddingGenarater
 from config.path_config import *
 from exeption import CustomExeption
 from logger import get_logger
+from utils.embeding_model import embeding_model,gemini_model
+from vector_store import VectorStore
+from langchain_chroma import Chroma
 
 
 logger = get_logger(__name__)
@@ -49,7 +52,27 @@ def pipeline():
                     all_chunks.append(chunks_with_meta)
 
         logger.info(f"Created all chunks {len(all_chunks)}")
-        return all_chunks
+        #return all_chunks
+
+        # Doing emberdings......
+        try:
+            logger.info("initialized models")
+            embedding_molel = embeding_model()
+            # geminii_model = gemini_model()
+
+            vector_db = VectorStore(presist_dir,embedding_molel)
+
+            logger.info("Create vectorstore....")
+            vector_db.create_vector_store()
+
+            logger.info("Adding chunks to chroma db...")
+
+            """---from here need to build----"""
+            
+            
+        except Exception as e:
+            logger.error("Error happening embeddings")
+            raise CustomExeption(f"Error happening in embeddings")
     
     except Exception as e:
         raise CustomExeption(f"Error running the ingestion pipeline....",e)
