@@ -3,24 +3,22 @@ from chunker import TextChunking
 from embedder import EmbeddingGenarater
 from config.path_config import *
 
-class main:
-    def pipeline(self):
-        # Directry loader
-        loader = DirectryLoader(data_dir)
 
-        documents = loader.load()
+def pipeline():
+    # Directry loader
+    loader = DirectryLoader(data_dir)
+    documents = loader.load()
 
-        # Text chunking
-        for item in enumerate(documents):
-           file_name =  item['filename']
-           conent = item['content']
-           chunker = TextChunking(700,70)
-        
-           sections = chunker.split_into_sections(conent)
-           
-           for section in sections:
-               chunks = chunker.chunk_section(section)
+    for index,item in enumerate(documents):
+        if index<2 :
+            print(f"----------Document--{index+1}--------")
+            print(f"filename---------{item['filename']}---------------") 
+            print(f"content---------{item['content'][:500]}---------------")
+    
+    chunker = TextChunking(700,70)
 
-               for chunk in chunks:
-                  all_chunks = chunker.chunk(chunk,file_name)
+    
+
+if __name__=="__main__":
+    pipeline() 
 

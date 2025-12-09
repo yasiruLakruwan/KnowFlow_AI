@@ -23,7 +23,7 @@ class DirectryLoader(DocumentLoader):
         return documents 
     
 
-if __name__=="__main__":
+"""if __name__=="__main__":
     loader = DirectryLoader(data_dir)
     documents = loader.load()
 
@@ -31,7 +31,7 @@ if __name__=="__main__":
         if index<2 :
             print(f"----------Document--{index+1}--------")
             print(f"---------{item['filename']}---------------") 
-            print(f"---------{item['content'][:200]}---------------") 
+            print(f"---------{item['content'][:200]}---------------") """
 
         
 
