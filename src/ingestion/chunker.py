@@ -82,9 +82,12 @@ class TextChunking:
                     "content":chunk_text
                 })
 
-                chunk_index += 1
+                chunk_index += 1 
 
-        return all_chunks
+        return all_chunks  
+    
+    # Helper method to conver all chunks to document.....
+
     
 # Testing the class........
 

@@ -44,36 +44,23 @@ def pipeline():
             logger.info("Getting sections and chunk sections....")
             
             for header,body in sections :
-                chunks = chunker.chunk_section(body)
+                #chunks = chunker.chunk_section(body)
 
                 logger.info("adding metadata to the chunks.....")
-                for chunk in chunks:
-                    chunks_with_meta = chunker.chunk(chunk,header)
-                    all_chunks.append(chunks_with_meta)
+                #for header,body in chunks:
+                chunks_with_meta = chunker.chunk(body,header)
+                all_chunks.extend(chunks_with_meta)
 
         logger.info(f"Created all chunks {len(all_chunks)}")
-        print(type(all_chunks))
         #return all_chunks
+        print(f"Total chunks before embedding: {len(all_chunks)}")
+        if len(all_chunks) > 0:
+            print("Sample chunk:", all_chunks[0])
+        logger.info("Doing embeddings")
+        embed_model = embeding_model()
+        vector_store = VectorStore(presist_dir,embed_model,all_chunks)
+        vector_store.create_vector_store()
 
-        # Doing emberdings......
-        try:
-            logger.info("initialized models")
-            embedding_molel = embeding_model()
-            # geminii_model = gemini_model()
-
-            vector_db = VectorStore(presist_dir,embedding_molel,all_chunks)
-
-            logger.info("Create vectorstore....")
-            vector_db.create_vector_store()
-
-            logger.info("Adding chunks to chroma db...")
-
-            """---from here need to build----"""
-            
-            
-        except Exception as e:
-            logger.error("Error happening embeddings")
-            raise CustomExeption(f"Error happening in embeddings") 
     
     except Exception as e:
         raise CustomExeption(f"Error running the ingestion pipeline....",e)

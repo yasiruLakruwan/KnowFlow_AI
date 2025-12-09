@@ -5,7 +5,8 @@ from logger import get_logger
 from utils.embeding_model import embeding_model,gemini_model
 from exeption import CustomExeption
 from config.path_config import presist_dir
-
+from langchain_core.documents import Document
+from utils.helper_functions import convert_chunks_to_documents
 logger = get_logger(__name__)
 
 # Creating vectorstore
@@ -21,8 +22,9 @@ class VectorStore:
         try:
             logger.info("Vector db initialized.....")
             # Create vector store
+            documents = convert_chunks_to_documents(self.chunks)
 
-            if os.path.exists(self.presist_dir):
+            if os.path.exists(self.presist_dir) and len(os.listdir(self.presist_dir)) > 0:
                 logger.info("✅ Vector store already exists. No need to re-process documents.")
                  
                 self.db = Chroma(
@@ -31,18 +33,19 @@ class VectorStore:
                     #collection_metadata={"hnsw:space": "cosine"}
                 )
                 print(f"Loaded existing vector store with {self.db._collection.count()} documents")
-
+                return self.db
+            
+            # create a new db
             os.makedirs(self.presist_dir,exist_ok=True)
             
             self.db = Chroma.from_documents(
-                documents=self.chunks,
-                embedding_function=self.embeding_model,
+                documents=documents,
+                embedding=self.embeding_model,
                 persist_directory = self.presist_dir
             )
             
             return self.db 
-         
-        
+
         except Exception as e:
             logger.error(f"Error happened when initialized the vector db.....")
             raise CustomExeption(f"Error while embedings",e)
