@@ -18,7 +18,7 @@ class TextChunking:
         try:
             logger.info("Start section spliting...")
 
-            pattern = r"\n\s*(?P<header>[A-Z][A-Za-z0-9 ]{3,})\s*\n"   # headings in PDF
+            pattern = pattern = r"\n\s*(?P<header>(?:[A-Z][A-Za-z ]{2,}|[0-9]+\.[A-Za-z ].{2,}))\s*\n"   # headings in PDF
             matches = list(re.finditer(pattern,text))
 
             sections = []
@@ -68,6 +68,8 @@ class TextChunking:
         """ Chunking the sections and section body.. """
         all_chunks= []
         sections = self.split_into_sections(text)
+        if not sections:
+            sections = [("FULL_TEXT", text)]
 
         chunk_index = 0
         source_name = source.replace(".pdf"," ").replace(" ","_")

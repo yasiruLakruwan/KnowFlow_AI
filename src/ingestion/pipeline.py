@@ -17,9 +17,11 @@ def pipeline():
         logger.info("Directry loading......")
         loader = DirectryLoader(data_dir)
         logger.info("Directry loaded.......")
+        print("Directry loaded.......")
 
         logger.info("Start loader.load funcion......")
         documents = loader.load()
+        print(f"Len of documents is {len(documents)}")
 
         logger.info("Initialized chunker......")
         chunker = TextChunking(700,70)
@@ -40,6 +42,7 @@ def pipeline():
             logger.info("Start splitting into sections")
             
             sections = chunker.split_into_sections(content)
+            print(f"Got sections {len(sections)}")
 
             logger.info("Getting sections and chunk sections....")
             
@@ -50,7 +53,8 @@ def pipeline():
                 #for header,body in chunks:
                 chunks_with_meta = chunker.chunk(body,header)
                 all_chunks.extend(chunks_with_meta)
-
+        
+        print(f"all chunks are {len(all_chunks)}")
         logger.info(f"Created all chunks {len(all_chunks)}")
         #return all_chunks
         print(f"Total chunks before embedding: {len(all_chunks)}")
