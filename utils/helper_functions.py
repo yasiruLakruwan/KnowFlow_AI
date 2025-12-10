@@ -1,4 +1,5 @@
 from langchain_core.documents import Document
+from neo4j import GraphDatabase
 
 def convert_chunks_to_documents(chunks):
     docs=[]
@@ -15,3 +16,4 @@ def convert_chunks_to_documents(chunks):
             )
         )
     return docs
+

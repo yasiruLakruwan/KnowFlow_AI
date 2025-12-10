@@ -22,3 +22,4 @@ tests/test_directry_loader.py
 tests/test_pdf_loader.py
 utils/__init__.py
 utils/embeding_model.py
+utils/helper_functions.py

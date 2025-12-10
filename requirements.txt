@@ -12,3 +12,4 @@ langchain-community
 pypdf
 pytest
 fpdf2
+neo4j
