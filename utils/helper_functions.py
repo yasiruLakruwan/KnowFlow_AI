@@ -32,6 +32,8 @@ def load_vector_store():
             persist_directory=presist_dir,
             embedding_function=embed_model
         )
+        logger.info("db loaded successfully....")
+        
         return db
     except Exception as e:
         raise CustomExeption("Error loading the vector db",e)
