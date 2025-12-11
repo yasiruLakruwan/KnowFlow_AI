@@ -50,4 +50,14 @@ class VectorStore:
             logger.error(f"Error happened when initialized the vector db.....")
             raise CustomExeption(f"Error while embedings",e)
     
+    def load_vector_store(self):
+        try:
+            return Chroma(
+                self.presist_dir,
+                embedding_function=self.embeding_model
+            )
+        except Exception as e:
+            logger.error("Error happening in loading vector_db",e)
+            raise CustomExeption("Error while loading the vector db",e)
+        
     
