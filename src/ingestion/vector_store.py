@@ -4,9 +4,11 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from logger import get_logger
 from utils.embeding_model import embeding_model,gemini_model
 from exeption import CustomExeption
-from config.path_config import presist_dir
+from config.path_config import presist_dir,document_pkl
 from langchain_core.documents import Document
 from utils.helper_functions import convert_chunks_to_documents
+import pickle
+
 logger = get_logger(__name__)
 
 # Creating vectorstore
@@ -23,6 +25,10 @@ class VectorStore:
             logger.info("Vector db initialized.....")
             # Create vector store
             documents = convert_chunks_to_documents(self.chunks)
+            
+            os.makedirs(document_pkl,exist_ok=True)
+            with open(os.path.join(document_pkl,"all_documents.plk"),'wb') as f:
+                pickle.dump(documents,f)
 
             if os.path.exists(self.presist_dir) and len(os.listdir(self.presist_dir)) > 0:
                 logger.info("✅ Vector store already exists. No need to re-process documents.")
