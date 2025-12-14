@@ -19,3 +19,5 @@ class Retriever:
         except Exception as e:
             logger.error("Error hapening while retrieving the vector store")
             raise CustomExeption("Error hapening while retrieving the vector store",e)
+        
+        
