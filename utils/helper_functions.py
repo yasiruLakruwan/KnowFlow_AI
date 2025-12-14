@@ -54,8 +54,9 @@ def load_documets_for_bm25(document_pkl:str):
     except Exception as e:
         raise CustomExeption("Error hapening in load document.pkl file")
 
-if __name__=="__main__":
+"""if __name__=="__main__":
     db = load_vector_store()
     print(db)
     documents = load_documets_for_bm25(document_pkl)
     print(len(documents))
+"""
