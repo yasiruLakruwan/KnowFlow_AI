@@ -2,7 +2,7 @@ from langchain_core.documents import Document
 from exeption import CustomExeption
 from logger import get_logger
 from langchain_chroma import Chroma
-from config.path_config import presist_dir
+from config.path_config import presist_dir,document_pkl
 from utils.embeding_model import embeding_model
 import os
 import pickle
@@ -42,9 +42,9 @@ def load_vector_store():
     except Exception as e:
         raise CustomExeption("Error loading the vector db",e)
     
-def load_documets_for_bm25(presist_dir:str):
+def load_documets_for_bm25(document_pkl:str):
     try:
-        file_path = os.path.join(presist_dir,"all_documents.pkl")
+        file_path = os.path.join(document_pkl,"all_documents.pkl")
         if not os.path.exists(file_path):
             raise CustomExeption(f"File path {file_path} doesnot exists")
         with open(file_path,"rb") as f:
@@ -56,3 +56,6 @@ def load_documets_for_bm25(presist_dir:str):
 
 if __name__=="__main__":
     db = load_vector_store()
+    print(db)
+    documents = load_documets_for_bm25(document_pkl)
+    print(len(documents))

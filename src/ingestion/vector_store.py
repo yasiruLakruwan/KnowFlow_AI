@@ -27,7 +27,7 @@ class VectorStore:
             documents = convert_chunks_to_documents(self.chunks)
             
             os.makedirs(document_pkl,exist_ok=True)
-            with open(os.path.join(document_pkl,"all_documents.plk"),'wb') as f:
+            with open(os.path.join(document_pkl,"all_documents.pkl"),'wb') as f:
                 pickle.dump(documents,f)
 
             if os.path.exists(self.presist_dir) and len(os.listdir(self.presist_dir)) > 0:
