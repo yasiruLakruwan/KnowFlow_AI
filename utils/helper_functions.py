@@ -8,6 +8,7 @@ import os
 import pickle
  
 
+
 logger = get_logger(__name__)    
 
 def convert_chunks_to_documents(chunks):
@@ -27,7 +28,7 @@ def convert_chunks_to_documents(chunks):
     return docs
 
 def load_vector_store():
-    try:
+    try:    
         logger.info("Loading existing vector database......")
         embed_model = embeding_model()
 
@@ -54,9 +55,12 @@ def load_documets_for_bm25(document_pkl:str):
     except Exception as e:
         raise CustomExeption("Error hapening in load document.pkl file")
 
-"""if __name__=="__main__":
+if __name__=="__main__":
     db = load_vector_store()
-    print(db)
+    print(db) 
     documents = load_documets_for_bm25(document_pkl)
     print(len(documents))
-"""
+
+
+
+
