@@ -8,7 +8,7 @@ import os
 import pickle
  
 
-logger = get_logger(__name__)
+logger = get_logger(__name__)    
 
 def convert_chunks_to_documents(chunks):
     docs=[]
