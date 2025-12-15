@@ -1,6 +1,13 @@
 from src.ingestion.vector_store import *
 from utils.embeding_model import embeding_model
-from utils.helper_functions import load_vector_store
+from utils.helper_functions import load_vector_store, load_documets_for_bm25
+from config.path_config import *
+from langchain_core.retrievers import MergerRetriever
+from langchain_community.retrievers import BM25Retriever
+from langchain_community.cross_encoders import HuggingFaceCrossEncoder
+from langchain_community.document_compressors import CrossEncoderReranker
+from langchain_community.retrievers import ContextualCompressionRetriever
+
 
 class Retriever:
     def __init__(self):
@@ -8,6 +15,7 @@ class Retriever:
 
     def basic_retriever(self):
         try:
+            logger.info("loading the vectorstore")
             self.db = load_vector_store()
             retriever = self.db.as_retriever(
                 search_type = "similarity",
@@ -16,8 +24,42 @@ class Retriever:
                     "score_threshold":0.2
                 }
             )
+            # Add bm25 retriever
+            logger.info("Adding bm25 retriever...")
+            all_docs = load_documets_for_bm25(document_pkl)
+            bm25 = BM25Retriever.from_documents(all_docs)
+            bm25.k = 8
+        
+            # Combine retrievers using RRF(Production approach)
+            logger.info("Combine retrievers using RRF(Production approach)")
+            hybrid_retriever = MergerRetriever(
+                retrievers = [retriever,bm25],
+                merge_mode = "rrf",
+                weights = [0.5,0.5]
+            )
+
+            # Add BGE reranker (Second-stage reranking)
+            logger.info("Add BGE reranker (Second-stage reranking)")
+            cross_encoder = HuggingFaceCrossEncoder("BAAI/bge-reranker-large")
+
+            reranker = CrossEncoderReranker(
+                model = cross_encoder,
+                top_n = 4
+            )
+
+            final_retriever = ContextualCompressionRetriever(
+                base_retriever = hybrid_retriever,
+                compressor = reranker
+            )
+
+            return final_retriever
+        
         except Exception as e:
             logger.error("Error hapening while retrieving the vector store")
             raise CustomExeption("Error hapening while retrieving the vector store",e)
         
-        
+if __name__=="__main__":
+    retrieve = Retriever()
+    final_retriever = retrieve.basic_retriever()
+
+    query = "What is data cleaning processes?"

@@ -13,3 +13,5 @@ pypdf
 pytest
 fpdf2
 neo4j
+sentence-transformers
+ragas
