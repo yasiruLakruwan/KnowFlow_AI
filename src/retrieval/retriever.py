@@ -58,8 +58,24 @@ class Retriever:
             logger.error("Error hapening while retrieving the vector store")
             raise CustomExeption("Error hapening while retrieving the vector store",e)
         
+    def test_retrival(retriever,query):
+        docs = retriever.get_relevent_documents(query)
+
+        print(f"\n🔍 Query: {query}")
+        print(f"📄 Retrieved {len(docs)} documents\n")
+
+        for i, doc in enumerate(docs):
+            print(f"--- Result {i+1} ---")
+            print("Metadata:", doc.metadata)
+            print("Content:", doc.page_content[:300])
+            print()
+    
+
 if __name__=="__main__":
     retrieve = Retriever()
     final_retriever = retrieve.basic_retriever()
 
-    query = "What is data cleaning processes?"
+    retrieve.test_retrival(
+        final_retriever,
+        "What is data cleaning?"
+    )
