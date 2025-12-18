@@ -15,3 +15,5 @@ fpdf2
 neo4j
 sentence-transformers
 ragas
+langchain-classic
+rank_bm25

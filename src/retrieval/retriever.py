@@ -2,12 +2,13 @@ from src.ingestion.vector_store import *
 from utils.embeding_model import embeding_model
 from utils.helper_functions import load_vector_store, load_documets_for_bm25
 from config.path_config import *
-from langchain_core.retrievers import MergerRetriever
+# langchain_community.retrievers import MergerRetriever
 from langchain_community.retrievers import BM25Retriever
 from langchain_community.cross_encoders import HuggingFaceCrossEncoder
-from langchain_community.document_compressors import CrossEncoderReranker
-from langchain_community.retrievers import ContextualCompressionRetriever
+from langchain_classic.retrievers.document_compressors import CrossEncoderReranker
+from langchain_classic.retrievers import ContextualCompressionRetriever
 
+from langchain_classic.retrievers import MergerRetriever
 
 class Retriever:
     def __init__(self):
@@ -40,7 +41,7 @@ class Retriever:
 
             # Add BGE reranker (Second-stage reranking)
             logger.info("Add BGE reranker (Second-stage reranking)")
-            cross_encoder = HuggingFaceCrossEncoder("BAAI/bge-reranker-large")
+            cross_encoder = HuggingFaceCrossEncoder(model_name = "BAAI/bge-reranker-large")
 
             reranker = CrossEncoderReranker(
                 model = cross_encoder,

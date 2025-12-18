@@ -1,0 +1,13 @@
+2025-12-18 22:42:03,026 - INFO - loading the vectorstore
+2025-12-18 22:42:03,026 - INFO - Loading existing vector database......
+2025-12-18 22:42:03,028 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-18 22:42:08,971 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-18 22:42:09,258 - INFO - db loaded successfully....
+2025-12-18 22:42:09,259 - INFO - Adding bm25 retriever...
+2025-12-18 22:42:09,290 - INFO - Combine retrievers using RRF(Production approach)
+2025-12-18 22:42:09,290 - INFO - Add BGE reranker (Second-stage reranking)
+2025-12-18 22:42:10,405 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-12-18 23:22:09,800 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-12-18 23:22:12,661 - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2025-12-18 23:22:30,495 - INFO - Use pytorch device: cpu
+2025-12-18 23:22:30,886 - ERROR - Error hapening while retrieving the vector store
