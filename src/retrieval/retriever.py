@@ -19,7 +19,7 @@ class Retriever:
             logger.info("loading the vectorstore")
             self.db = load_vector_store()
             retriever = self.db.as_retriever(
-                search_type = "similarity",
+                search_type = "similarity_score_threshold",
                 search_kwargs = {
                     "k":8,
                     "score_threshold":0.2
@@ -42,15 +42,14 @@ class Retriever:
             # Add BGE reranker (Second-stage reranking)
             logger.info("Add BGE reranker (Second-stage reranking)")
             cross_encoder = HuggingFaceCrossEncoder(model_name = "BAAI/bge-reranker-large")
-
-            reranker = CrossEncoderReranker(
-                model = cross_encoder,
-                top_n = 4
-            )
+            compressor = CrossEncoderReranker(
+                    model=cross_encoder,
+                    top_n=4
+                )
 
             final_retriever = ContextualCompressionRetriever(
                 base_retriever = hybrid_retriever,
-                compressor = reranker
+                base_compressor = compressor
             )
 
             return final_retriever
@@ -59,8 +58,8 @@ class Retriever:
             logger.error("Error hapening while retrieving the vector store")
             raise CustomExeption("Error hapening while retrieving the vector store",e)
         
-    def test_retrival(retriever,query):
-        docs = retriever.get_relevent_documents(query)
+    def test_retrival(self,retriever,query):
+        docs = retriever.invoke(query)
 
         print(f"\n🔍 Query: {query}")
         print(f"📄 Retrieved {len(docs)} documents\n")
@@ -78,5 +77,5 @@ if __name__=="__main__":
 
     retrieve.test_retrival(
         final_retriever,
-        "What is data cleaning?"
+        "How to sample the data?"
     )
