@@ -18,3 +18,13 @@
 2025-12-19 00:18:35,469 - INFO - Add BGE reranker (Second-stage reranking)
 2025-12-19 00:18:39,872 - INFO - Use pytorch device: cpu
 2025-12-19 00:18:40,443 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
+2025-12-19 21:37:14,260 - INFO - loading the vectorstore
+2025-12-19 21:37:14,273 - INFO - Loading existing vector database......
+2025-12-19 21:37:14,277 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-19 21:37:27,071 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-19 21:37:29,881 - INFO - db loaded successfully....
+2025-12-19 21:37:29,881 - INFO - Adding bm25 retriever...
+2025-12-19 21:37:29,982 - INFO - Combine retrievers using RRF(Production approach)
+2025-12-19 21:37:29,983 - INFO - Add BGE reranker (Second-stage reranking)
+2025-12-19 21:37:36,268 - INFO - Use pytorch device: cpu
+2025-12-19 21:37:42,166 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
