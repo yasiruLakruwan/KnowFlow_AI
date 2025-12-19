@@ -1,10 +1,12 @@
-2025-12-19 21:52:03,381 - INFO - loading the vectorstore
-2025-12-19 21:52:03,381 - INFO - Loading existing vector database......
-2025-12-19 21:52:03,383 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
-2025-12-19 21:52:10,906 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
-2025-12-19 21:52:11,122 - INFO - db loaded successfully....
-2025-12-19 21:52:11,122 - INFO - Adding bm25 retriever...
-2025-12-19 21:52:11,145 - INFO - Combine retrievers using RRF(Production approach)
-2025-12-19 21:52:11,145 - INFO - Add BGE reranker (Second-stage reranking)
-2025-12-19 21:52:16,366 - INFO - Use pytorch device: cpu
-2025-12-19 21:52:16,857 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
+2025-12-19 21:58:53,150 - INFO - loading the vectorstore
+2025-12-19 21:58:53,150 - INFO - Loading existing vector database......
+2025-12-19 21:58:53,152 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-19 21:59:04,579 - WARNING - '(MaxRetryError('HTTPSConnectionPool(host=\'huggingface.co\', port=443): Max retries exceeded with url: /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002101366F810>: Failed to resolve \'huggingface.co\' ([Errno 11001] getaddrinfo failed)"))'), '(Request ID: b457448a-a42f-4602-b1c7-6be577c6c083)')' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/./modules.json
+2025-12-19 21:59:04,580 - WARNING - Retrying in 1s [Retry 1/5].
+2025-12-19 21:59:23,975 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-19 21:59:24,205 - INFO - db loaded successfully....
+2025-12-19 21:59:24,205 - INFO - Adding bm25 retriever...
+2025-12-19 21:59:24,231 - INFO - Combine retrievers using RRF(Production approach)
+2025-12-19 21:59:24,231 - INFO - Add BGE reranker (Second-stage reranking)
+2025-12-19 21:59:37,133 - INFO - Use pytorch device: cpu
+2025-12-19 21:59:37,966 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
