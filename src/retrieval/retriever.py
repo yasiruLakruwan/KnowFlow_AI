@@ -1,5 +1,5 @@
 from src.ingestion.vector_store import *
-from utils.embeding_model import embeding_model
+# from utils.embeding_model import embeding_model
 from utils.helper_functions import load_vector_store, load_documets_for_bm25
 from config.path_config import *
 # langchain_community.retrievers import MergerRetriever
@@ -77,5 +77,5 @@ if __name__=="__main__":
 
     retrieve.test_retrival(
         final_retriever,
-        "How to sample the data?"
+        "What is this implementation?"
     )
