@@ -7,6 +7,7 @@ from langchain_community.retrievers import BM25Retriever
 from langchain_community.cross_encoders import HuggingFaceCrossEncoder
 from langchain_classic.retrievers.document_compressors import CrossEncoderReranker
 from langchain_classic.retrievers import ContextualCompressionRetriever
+from context_builder import ContextBuilder
 
 from langchain_classic.retrievers import MergerRetriever
 
@@ -75,7 +76,11 @@ if __name__=="__main__":
     retrieve = Retriever()
     final_retriever = retrieve.basic_retriever()
 
-    retrieve.test_retrival(
+    docs = retrieve.test_retrival(
         final_retriever,
         "What is this implementation?"
     )
+
+    # Build context
+    context_builder = ContextBuilder(max_tokens=3000)
+    context = context_builder.build(docs)
