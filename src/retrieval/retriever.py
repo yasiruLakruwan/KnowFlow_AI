@@ -70,7 +70,8 @@ class Retriever:
             print("Metadata:", doc.metadata)
             print("Content:", doc.page_content[:300])
             print()
-    
+        
+        return docs
 
 if __name__=="__main__":
     retrieve = Retriever()
@@ -84,3 +85,6 @@ if __name__=="__main__":
     # Build context
     context_builder = ContextBuilder(max_tokens=3000)
     context = context_builder.build(docs)
+
+    print("\n====Context sent to LLM=====")
+    print(context)
