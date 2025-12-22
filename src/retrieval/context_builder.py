@@ -15,4 +15,4 @@ class ContextBuilder:
         """
         Build LLM ready context from reranked documents.
         """
-                
+        
