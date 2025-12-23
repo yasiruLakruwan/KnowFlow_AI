@@ -1,0 +1,10 @@
+2025-12-23 22:03:18,751 - INFO - loading the vectorstore
+2025-12-23 22:03:18,751 - INFO - Loading existing vector database......
+2025-12-23 22:03:18,782 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-23 22:03:28,789 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-23 22:03:31,644 - INFO - db loaded successfully....
+2025-12-23 22:03:31,645 - INFO - Adding bm25 retriever...
+2025-12-23 22:03:31,728 - INFO - Combine retrievers using RRF(Production approach)
+2025-12-23 22:03:31,728 - INFO - Add BGE reranker (Second-stage reranking)
+2025-12-23 22:03:36,668 - INFO - Use pytorch device: cpu
+2025-12-23 22:03:41,230 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2

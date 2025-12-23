@@ -8,8 +8,8 @@ from langchain_community.cross_encoders import HuggingFaceCrossEncoder
 from langchain_classic.retrievers.document_compressors import CrossEncoderReranker
 from langchain_classic.retrievers import ContextualCompressionRetriever
 from context_builder import ContextBuilder
-from llm.llm_client import LlmClient
-from llm.response_genarater import ResponseGenarater
+#from llm.llm_client import LlmClient
+from src.answer_genaration.response_genarater import ResponseGenarater
 from utils.embeding_model import gemini_model
 
 from langchain_classic.retrievers import MergerRetriever
@@ -94,9 +94,10 @@ if __name__=="__main__":
     print("\n====Context sent to LLM=====")
     print(context)
 
-    gemini = gemini_model()
+    response_genarator = ResponseGenarater()
 
-    response_genarator = ResponseGenarater(gemini)
+    print("======Answer======")
     answer = response_genarator.genarate(query,context)
+    print(answer)
 
 
