@@ -8,6 +8,9 @@ from langchain_community.cross_encoders import HuggingFaceCrossEncoder
 from langchain_classic.retrievers.document_compressors import CrossEncoderReranker
 from langchain_classic.retrievers import ContextualCompressionRetriever
 from context_builder import ContextBuilder
+from llm.llm_client import LlmClient
+from llm.response_genarater import ResponseGenarater
+from utils.embeding_model import gemini_model
 
 from langchain_classic.retrievers import MergerRetriever
 
@@ -77,9 +80,11 @@ if __name__=="__main__":
     retrieve = Retriever()
     final_retriever = retrieve.basic_retriever()
 
+    query = "What is this implementation?"
+
     docs = retrieve.test_retrival(
         final_retriever,
-        "What is this implementation?"
+        query
     )
 
     # Build context
@@ -88,3 +93,10 @@ if __name__=="__main__":
 
     print("\n====Context sent to LLM=====")
     print(context)
+
+    gemini = gemini_model()
+
+    response_genarator = ResponseGenarater(gemini)
+    answer = response_genarator.genarate(query,context)
+
+

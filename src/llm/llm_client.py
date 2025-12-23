@@ -1,4 +1,4 @@
-class llm_client:
+class LlmClient:
     def __init__(self,llm):
         self.llm = llm
 
