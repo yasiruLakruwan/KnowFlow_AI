@@ -89,6 +89,11 @@ if __name__=="__main__":
 
     # Build context
     context_builder = ContextBuilder(max_tokens=3000)
+
+    # Getting contexts for the ragas evaluation 
+
+    contexts = [doc.page_content for doc in docs]
+
     context = context_builder.build(docs)
 
     print("\n====Context sent to LLM=====")

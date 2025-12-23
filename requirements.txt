@@ -17,3 +17,4 @@ sentence-transformers
 ragas
 langchain-classic
 rank_bm25
+datasets
