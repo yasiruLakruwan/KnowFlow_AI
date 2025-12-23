@@ -6,7 +6,7 @@ from config.path_config import presist_dir,document_pkl
 from utils.embeding_model import embeding_model
 import os
 import pickle
- 
+from datasets import Dataset
 
 
 logger = get_logger(__name__)    
@@ -55,8 +55,24 @@ def load_documets_for_bm25(document_pkl:str):
     except Exception as e:
         raise CustomExeption("Error hapening in load document.pkl file")
 
+
+# Build ragas dataset
+
+def build_ragas_dataset(questions,answers,contexts,ground_truths=None):
+    data ={
+        "quesiton":questions,
+        "answer":answers,
+        "contexts":contexts
+    }
+    if ground_truths:
+        data["ground_truth"]=ground_truths
+
+    return Dataset.from_dict(data)
+
 if __name__== "__main__":
     db = load_vector_store()
     print(db) 
     documents = load_documets_for_bm25(document_pkl)
     print(len(documents)) 
+
+
