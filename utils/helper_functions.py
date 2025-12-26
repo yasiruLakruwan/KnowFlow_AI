@@ -7,6 +7,8 @@ from utils.embeding_model import embeding_model
 import os
 import pickle
 from datasets import Dataset
+from ragas import evaluate
+from ragas.metrics import (context_precision,context_recall,faithfulness,answer_relevancy)
 
 
 logger = get_logger(__name__)    
@@ -68,6 +70,24 @@ def build_ragas_dataset(questions,answers,contexts,ground_truths=None):
         data["ground_truth"]=ground_truths
 
     return Dataset.from_dict(data)
+
+# Run RAGAS evaluation
+def run_ragas(dataset):
+    model = embeding_model()
+    results = evaluate(
+        dataset,
+        metrics=[
+            context_precision,
+            context_recall,
+            faithfulness,
+            answer_relevancy
+        ],
+        llm = model
+    )
+    return results
+
+
+
 
 if __name__== "__main__":
     db = load_vector_store()
