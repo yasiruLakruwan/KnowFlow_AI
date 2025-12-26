@@ -1,6 +1,6 @@
 from src.ingestion.vector_store import *
 # from utils.embeding_model import embeding_model
-from utils.helper_functions import load_vector_store, load_documets_for_bm25
+from utils.helper_functions import load_vector_store, load_documets_for_bm25,build_ragas_dataset,run_ragas
 from config.path_config import *
 # langchain_community.retrievers import MergerRetriever
 from langchain_community.retrievers import BM25Retriever
@@ -11,6 +11,7 @@ from context_builder import ContextBuilder
 #from llm.llm_client import LlmClient
 from src.answer_genaration.response_genarater import ResponseGenarater
 from utils.embeding_model import gemini_model
+
 
 from langchain_classic.retrievers import MergerRetriever
 
@@ -104,5 +105,20 @@ if __name__=="__main__":
     print("======Answer======")
     answer = response_genarator.genarate(query,context)
     print(answer)
+
+    print("======RAGAS evaluation======")
+
+    dataset = build_ragas_dataset(
+        user_inputs=[query],
+        responses=[answer],
+        retrieved_contexts=[contexts],
+        references=[""]  # dummy reference
+    )
+
+
+    # ragas evaluation 
+
+    results = run_ragas(dataset)
+    print(results)
 
 

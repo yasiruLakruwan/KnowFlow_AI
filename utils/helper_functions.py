@@ -8,7 +8,7 @@ import os
 import pickle
 from datasets import Dataset
 from ragas import evaluate
-from ragas.metrics import (context_precision,context_recall,faithfulness,answer_relevancy)
+from ragas.metrics import (context_precision,faithfulness,answer_relevancy)
 
 
 logger = get_logger(__name__)    
@@ -59,15 +59,18 @@ def load_documets_for_bm25(document_pkl:str):
 
 
 # Build ragas dataset
+# RAGAS requires references column for validation
 
-def build_ragas_dataset(questions,answers,contexts,ground_truths=None):
+def build_ragas_dataset(user_inputs,responses,retrieved_contexts,references=None):
     data ={
-        "quesiton":questions,
-        "answer":answers,
-        "contexts":contexts
+        "user_input":user_inputs,
+        "respnses":responses,
+        "retrieved_contexts":retrieved_contexts
     }
-    if ground_truths:
-        data["ground_truth"]=ground_truths
+    if references:
+        data["reference"]=[""]*len(user_inputs)
+    else:
+        data["reference"]=references
 
     return Dataset.from_dict(data)
 
@@ -78,15 +81,12 @@ def run_ragas(dataset):
         dataset,
         metrics=[
             context_precision,
-            context_recall,
             faithfulness,
             answer_relevancy
         ],
         llm = model
     )
     return results
-
-
 
 
 if __name__== "__main__":
