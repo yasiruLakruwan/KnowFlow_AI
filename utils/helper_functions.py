@@ -1,9 +1,10 @@
 from langchain_core.documents import Document
+from langchain_huggingface import HuggingFaceEmbeddings
 from exeption import CustomExeption
 from logger import get_logger
 from langchain_chroma import Chroma
 from config.path_config import presist_dir,document_pkl
-from utils.embeding_model import embeding_model
+from utils.embeding_model import embeding_model,gemini_model
 import os
 import pickle
 from datasets import Dataset
@@ -62,21 +63,26 @@ def load_documets_for_bm25(document_pkl:str):
 # RAGAS requires references column for validation
 
 def build_ragas_dataset(user_inputs,responses,retrieved_contexts,references=None):
+    
+    if references is None:
+        references = [""] * len(user_inputs)
+    
     data ={
         "user_input":user_inputs,
-        "respnses":responses,
-        "retrieved_contexts":retrieved_contexts
+        "response":responses,
+        "retrieved_contexts":retrieved_contexts,
+        "reference":references
     }
-    if references:
-        data["reference"]=[""]*len(user_inputs)
-    else:
-        data["reference"]=references
 
     return Dataset.from_dict(data)
 
 # Run RAGAS evaluation
-def run_ragas(dataset):
-    model = embeding_model()
+def run_ragas(dataset,model):
+
+    embeddings = HuggingFaceEmbeddings(
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    )
+    model = gemini_model()
     results = evaluate(
         dataset,
         metrics=[
@@ -84,7 +90,8 @@ def run_ragas(dataset):
             faithfulness,
             answer_relevancy
         ],
-        llm = model
+        llm = model,
+        embeddings=embeddings
     )
     return results
 

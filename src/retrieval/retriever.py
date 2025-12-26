@@ -1,5 +1,5 @@
 from src.ingestion.vector_store import *
-# from utils.embeding_model import embeding_model
+from utils.embeding_model import embeding_model
 from utils.helper_functions import load_vector_store, load_documets_for_bm25,build_ragas_dataset,run_ragas
 from config.path_config import *
 # langchain_community.retrievers import MergerRetriever
@@ -80,6 +80,7 @@ class Retriever:
 if __name__=="__main__":
     retrieve = Retriever()
     final_retriever = retrieve.basic_retriever()
+    llm = gemini_model()
 
     query = "What is this implementation?"
 
@@ -118,7 +119,8 @@ if __name__=="__main__":
 
     # ragas evaluation 
 
-    results = run_ragas(dataset)
+    results = run_ragas(dataset,llm)
     print(results)
+    logger.info(f"RAGAS results are: {results}")
 
 
