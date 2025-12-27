@@ -10,7 +10,10 @@ import pickle
 from datasets import Dataset
 from ragas import evaluate
 from ragas.metrics import (context_precision,faithfulness,answer_relevancy)
-
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough, RunnableLambda
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage,SystemMessage,AIMessage
 
 logger = get_logger(__name__)    
 
@@ -75,6 +78,30 @@ def build_ragas_dataset(user_inputs,responses,retrieved_contexts,references=None
     }
 
     return Dataset.from_dict(data)
+
+# create history aware retriever
+
+def history_aware_retriever():
+    contextualize_prompt = ChatPromptTemplate.from_messages([
+        ("system",
+        "Given the chat history and the latest user question, "
+        "rewrite the question so it can be understood without the chat history. "
+        "Do NOT answer the question."),
+        ("human", "Chat history:\n{chat_history}\n\nQuestion:\n{input}")
+    ])
+
+    llm = gemini_model()
+
+    history_aware_retriever = (
+        {
+            "input":RunnablePassthrough(),
+            "chat_history": RunnablePassthrough(),
+        }
+        | contextualize_prompt
+        | llm
+        | RunnableLambda(extract)
+    )
+
 
 # Run RAGAS evaluation
 def run_ragas(dataset,model):
