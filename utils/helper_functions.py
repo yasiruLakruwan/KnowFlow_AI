@@ -95,12 +95,9 @@ def run_ragas(dataset,model):
     )
     return results
 
-## implementing history awareness 
 
-def building_chat_history():
-    chat_histry = []
 
-    
+
 
 
 if __name__== "__main__":
