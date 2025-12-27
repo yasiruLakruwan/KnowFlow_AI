@@ -11,9 +11,7 @@ from datasets import Dataset
 from ragas import evaluate
 from ragas.metrics import (context_precision,faithfulness,answer_relevancy)
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnablePassthrough, RunnableLambda
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import HumanMessage,SystemMessage,AIMessage
+
 
 logger = get_logger(__name__)    
 
@@ -92,16 +90,7 @@ def history_aware_retriever():
 
     llm = gemini_model()
 
-    history_aware_retriever = (
-        {
-            "input":RunnablePassthrough(),
-            "chat_history": RunnablePassthrough(),
-        }
-        | contextualize_prompt
-        | llm
-        | RunnableLambda(extract)
-    )
-
+   
 
 # Run RAGAS evaluation
 def run_ragas(dataset,model):
@@ -122,9 +111,27 @@ def run_ragas(dataset,model):
     )
     return results
 
+def rewrite_query(llm, question: str, chat_history: list[str]) -> str:
+    rewrite_prompt = ChatPromptTemplate.from_messages([
+            ("system",
+            "Rewrite the user's question into a standalone question using the chat history. "
+            "Do NOT answer the question."),
+            ("human",
+            "Chat history:\n{chat_history}\n\nUser question:\n{question}")
+        ])
+    if not chat_history:
+        return question
 
+    formatted_history = "\n".join(chat_history)
 
+    rewritten = llm.invoke(
+        rewrite_prompt.format_messages(
+            chat_history=formatted_history,
+            question=question
+        )
+    )
 
+    return rewritten.content
 
 
 if __name__== "__main__":

@@ -1,6 +1,7 @@
+from src.chat_memory.chat_history import ChatMemory
 from src.ingestion.vector_store import *
 from utils.embeding_model import embeding_model
-from utils.helper_functions import load_vector_store, load_documets_for_bm25,build_ragas_dataset,run_ragas
+from utils.helper_functions import load_vector_store, load_documets_for_bm25,build_ragas_dataset, rewrite_query,run_ragas
 from config.path_config import *
 # langchain_community.retrievers import MergerRetriever
 from langchain_community.retrievers import BM25Retriever
@@ -79,10 +80,18 @@ class Retriever:
 
 if __name__=="__main__":
     retrieve = Retriever()
+    memory = ChatMemory()
+    
     final_retriever = retrieve.basic_retriever()
     llm = gemini_model()
 
     query = input("How may I help you: ")
+
+    rewritten_query = rewrite_query(
+        llm=llm,
+        question=query,
+        chat_history=memory.get()
+    )
 
     docs = retrieve.test_retrival(
         final_retriever,
