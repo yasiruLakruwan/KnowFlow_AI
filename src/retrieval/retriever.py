@@ -82,7 +82,7 @@ if __name__=="__main__":
     final_retriever = retrieve.basic_retriever()
     llm = gemini_model()
 
-    query = "What is this implementation?"
+    query = input("How may I help you: ")
 
     docs = retrieve.test_retrival(
         final_retriever,
