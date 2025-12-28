@@ -133,8 +133,7 @@ if __name__=="__main__":
             retrieved_contexts=[contexts],
             references=[""]  # dummy reference
         )
-
-
+        
         # ragas evaluation 
 
         results = run_ragas(dataset,llm)
