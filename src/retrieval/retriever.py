@@ -85,51 +85,60 @@ if __name__=="__main__":
     final_retriever = retrieve.basic_retriever()
     llm = gemini_model()
 
-    query = input("How may I help you: ")
+    while True:
+        query = input("How may I help you: ")
 
-    rewritten_query = rewrite_query(
-        llm=llm,
-        question=query,
-        chat_history=memory.get()
-    )
+        if query.lower() in ["exit","quit"]:
+            print("Thank you...Have a nice day..!")
+            break
 
-    docs = retrieve.test_retrival(
-        final_retriever,
-        query
-    )
+        memory.user_messages(query)
 
-    # Build context
-    context_builder = ContextBuilder(max_tokens=3000)
+        # History awaer query wewritting
+        rewritten_query=rewrite_query(
+            llm = llm,
+            question=query,
+            chat_history=memory.get()
+        )
+        docs = retrieve.test_retrival(
+            final_retriever,
+            rewritten_query
+        )
 
-    # Getting contexts for the ragas evaluation 
+        # Build context
+        context_builder = ContextBuilder(max_tokens=3000)
 
-    contexts = [doc.page_content for doc in docs]
+        # Getting contexts for the ragas evaluation 
 
-    context = context_builder.build(docs)
+        contexts = [doc.page_content for doc in docs]
 
-    print("\n====Context sent to LLM=====")
-    print(context)
+        context = context_builder.build(docs)
 
-    response_genarator = ResponseGenarater()
+        print("\n====Context sent to LLM=====")
+        print(context)
 
-    print("======Answer======")
-    answer = response_genarator.genarate(query,context)
-    print(answer)
+        response_genarator = ResponseGenarater()
 
-    print("======RAGAS evaluation======")
-
-    dataset = build_ragas_dataset(
-        user_inputs=[query],
-        responses=[answer],
-        retrieved_contexts=[contexts],
-        references=[""]  # dummy reference
-    )
+        print("======Answer======")
+        answer = response_genarator.genarate(query,context)
+        memory.add_ai_message(answer)
+        print(answer)
 
 
-    # ragas evaluation 
+        print("======RAGAS evaluation======")
 
-    results = run_ragas(dataset,llm)
-    print(results)
-    logger.info(f"RAGAS results are: {results}")
+        dataset = build_ragas_dataset(
+            user_inputs=[query],
+            responses=[answer],
+            retrieved_contexts=[contexts],
+            references=[""]  # dummy reference
+        )
+
+
+        # ragas evaluation 
+
+        results = run_ragas(dataset,llm)
+        print(results)
+        logger.info(f"RAGAS results are: {results}")
 
 

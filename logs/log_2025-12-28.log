@@ -1,0 +1,13 @@
+2025-12-28 15:45:56,401 - INFO - loading the vectorstore
+2025-12-28 15:45:56,402 - INFO - Loading existing vector database......
+2025-12-28 15:45:56,405 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-28 15:46:06,049 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-28 15:46:06,415 - INFO - db loaded successfully....
+2025-12-28 15:46:06,416 - INFO - Adding bm25 retriever...
+2025-12-28 15:46:06,491 - INFO - Combine retrievers using RRF(Production approach)
+2025-12-28 15:46:06,491 - INFO - Add BGE reranker (Second-stage reranking)
+2025-12-28 15:46:12,126 - INFO - Use pytorch device: cpu
+2025-12-28 15:46:52,478 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
+2025-12-28 15:47:11,107 - INFO - Use pytorch device_name: cpu
+2025-12-28 15:47:11,107 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-28 15:48:04,462 - INFO - RAGAS results are: {'context_precision': 0.0000, 'faithfulness': 1.0000, 'answer_relevancy': 0.0000}
