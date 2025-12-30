@@ -86,6 +86,8 @@ if __name__=="__main__":
     llm = gemini_model()
     agents = CustomAgents(llm)
 
+    retry_limit = 2
+
     while True:
         query = input("How may I help you: ")
 
@@ -148,12 +150,15 @@ if __name__=="__main__":
 
         # Retry if fails(Agentic loop)
         if critique == "FAIL":
-            print("Low confidence answer. Retrying with expanded query")
-            
-            expanded_query = rewritten_query+" detail explanation example..."
-            docs = final_retriever.invoke(expanded_query)
-            context=context_builder.build(docs)
-            answer = response_genarator.genarate(query,context)
+            while retry_limit==2:
+                print("Low confidence answer. Retrying with expanded query")
+                
+                expanded_query = rewritten_query+" detail explanation example..."
+                docs = final_retriever.invoke(expanded_query)
+                context=context_builder.build(docs)
+                answer = response_genarator.genarate(query,context)
+
+                retry_limit+=1
 
         memory.add_ai_message(answer)
 
