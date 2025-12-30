@@ -22,6 +22,25 @@ class CustomAgents:
         return self.llm.invoke(prompt).content.strip().lower()
     
     def critique(self,question,context,answer):
-        prompt ="""
-    
+        prompt =f"""
+    You are a strict evaluator.
+
+    Question:
+    {question}
+
+    Context:
+    {context}
+
+    Answer:
+    {answer}
+
+    Is the answer:
+    - grounded in the context?
+    - relevent?
+    - complete?
+
+    Response ONLY with PASS or FAIL.
     """
+        return self.llm.invoke(prompt).content.strip()
+    
+    
