@@ -18,3 +18,4 @@ ragas
 langchain-classic
 rank_bm25
 datasets
+pymongo
