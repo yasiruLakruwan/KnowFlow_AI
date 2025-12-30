@@ -12,7 +12,7 @@ from context_builder import ContextBuilder
 #from llm.llm_client import LlmClient
 from src.answer_genaration.response_genarater import ResponseGenarater
 from utils.embeding_model import gemini_model
-
+from src.agents.custom_agents import CustomAgents
 
 from langchain_classic.retrievers import MergerRetriever
 
@@ -81,9 +81,10 @@ class Retriever:
 if __name__=="__main__":
     retrieve = Retriever()
     memory = ChatMemory()
-    
+
     final_retriever = retrieve.basic_retriever()
     llm = gemini_model()
+    agents = CustomAgents(llm)
 
     while True:
         query = input("How may I help you: ")
@@ -94,12 +95,27 @@ if __name__=="__main__":
 
         memory.user_messages(query)
 
-        # History awaer query wewritting
-        rewritten_query=rewrite_query(
-            llm = llm,
-            question=query,
-            chat_history=memory.get()
+        # Planer deside what to do
+
+        action = agents.plan_aciton(
+            # llm = llm,
+            question = query,
+            chat_history = memory.get()
         )
+
+        # Query handling according based on the plan
+
+        if action=="rewrite_and_retrieve":
+            # rewriting query.....
+            rewrite_query = rewrite_query(
+                llm = llm,
+                question=query,
+                chat_history=memory.get()
+            )
+        else:
+            rewritten_query = query
+
+        # Retrival (SAME retriever..)
         docs = retrieve.test_retrival(
             final_retriever,
             rewritten_query
@@ -121,7 +137,26 @@ if __name__=="__main__":
 
         print("======Answer======")
         answer = response_genarator.genarate(query,context)
+
+        # Critic verification...
+        critique = agents.critique(
+            # llm = llm,
+            question=query,
+            context=context,
+            answer=answer
+        )
+
+        # Retry if fails(Agentic loop)
+        if critique == "FAIL":
+            print("Low confidence answer. Retrying with expanded query")
+            
+            expanded_query = rewritten_query+" detail explanation example..."
+            docs = final_retriever.invoke(expanded_query)
+            context=context_builder.build(docs)
+            answer = response_genarator.genarate(query,context)
+
         memory.add_ai_message(answer)
+
         print(answer)
 
 

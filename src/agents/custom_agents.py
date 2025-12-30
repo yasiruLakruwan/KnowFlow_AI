@@ -3,14 +3,14 @@ class CustomAgents:
     def __init__(self,llm):
         self.llm = llm
 
-    def plan_aciton(self,quesiton,chat_history):
+    def plan_aciton(self,question,chat_history):
         prompt = f"""
     You are a RAG planner.
 
     Conversation history:
     {chat_history}
     User question:
-    {quesiton}
+    {question}
     Deside the next action:
     - rewrite
     - rewrite and retrive
@@ -42,5 +42,4 @@ class CustomAgents:
     Response ONLY with PASS or FAIL.
     """
         return self.llm.invoke(prompt).content.strip()
-    
     
