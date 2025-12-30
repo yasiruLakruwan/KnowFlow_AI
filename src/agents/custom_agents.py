@@ -1,6 +1,8 @@
 class CustomAgents:
+
     def __init__(self,llm):
         self.llm = llm
+
     def plan_aciton(self,quesiton,chat_history):
         prompt = f"""
     You are a RAG planner.
@@ -13,11 +15,13 @@ class CustomAgents:
     - rewrite
     - rewrite and retrive
     - ask clarification
-    - asswer directly
+    - answer directly
 
     Return ONLY one action
     """
         return self.llm.invoke(prompt).content.strip().lower()
     
-    def critic(self,question,context,answer):
-        pass
+    def critique(self,question,context,answer):
+        prompt ="""
+    
+    """
