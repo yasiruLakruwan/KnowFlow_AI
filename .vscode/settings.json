@@ -1,3 +1,6 @@
 {
-    "github.copilot.chat.agent.currentEditorContext.enabled": false
+    "github.copilot.chat.agent.currentEditorContext.enabled": false,
+    "python.analysis.extraPaths": [
+        "./src/retrieval"
+    ]
 }
