@@ -18,6 +18,6 @@ def embeding_model():
 def gemini_model():
     gemini_model = ChatGoogleGenerativeAI(
         google_api_key=os.getenv("GEMINI_API_KEY"), # Required by library, any string works
-        model="gemini-2.5-flash" # The name of the model you pulled with Ollama
+        model="gemini-2.0-flash-lite" # The name of the model you pulled with Ollama
     )
     return gemini_model

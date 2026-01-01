@@ -1,20 +1,25 @@
 from datetime import datetime
 from typing import Dict
+import uuid
 
 # Creating schema......
 
 def evaluation_document(
-        run_id:str,
-        question:str,
+        # run_id:str,
+        query:str,
+        rewritten_query:str,
         answer:str,
-        scores: Dict[str,float],
+        contexts:str,
+        ragas_results:Dict[str,float],
         metadata: Dict
 ):
     return {
-        "run_id":run_id,
-        "question":question,
+        "run_id":str(uuid.uuid4()),
+        "question":query,
+        "rewritten_query":rewritten_query,
         "answer":answer,
-        "scores":scores,
+        "contexts":contexts,
+        "scores":ragas_results,
         "metadata": metadata,
         "created_at":datetime.utcnow()
     }

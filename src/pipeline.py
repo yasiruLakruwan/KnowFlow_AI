@@ -27,7 +27,7 @@ if __name__=="__main__":
     memory = ChatMemory()
 
     mongo_provider = MongoClientProvider(
-        uri= os.getenv("CONNECTION_STRING"),
+        uri= os.getenv("MONGO_URI"),
         db_name = "rag_observability"
     )
 
