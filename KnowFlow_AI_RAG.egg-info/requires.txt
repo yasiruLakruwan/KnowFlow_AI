@@ -7,7 +7,6 @@ langchain-huggingface
 langchain_google_genai
 pandas
 numpy
-langchain_google_genai
 langchain-community
 pypdf
 pytest
@@ -19,3 +18,4 @@ langchain-classic
 rank_bm25
 datasets
 pymongo
+google-generativeai

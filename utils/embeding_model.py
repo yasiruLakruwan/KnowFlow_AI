@@ -18,7 +18,7 @@ def embeding_model():
 def gemini_model():
     gemini_model = ChatGoogleGenerativeAI(
         google_api_key=os.getenv("GEMINI_API_KEY"), # Required by library, any string works
-        model="gemini-1.5-flash"
+        model="gemini-flash-lite-latest"
         # temperature=0
     )
     return gemini_model

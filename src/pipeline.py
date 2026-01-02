@@ -1,3 +1,4 @@
+import uuid
 from src.chat_memory.chat_history import ChatMemory
 from src.ingestion.vector_store import *
 from utils.embeding_model import embeding_model
@@ -41,8 +42,9 @@ if __name__=="__main__":
     agents = CustomAgents(llm)
 
     retry_limit = 2
-
+    
     while True:
+        run_id = 0
         query = input("How may I help you: ")
 
         if query.lower() in ["exit","quit"]:
@@ -104,7 +106,7 @@ if __name__=="__main__":
 
         # Retry if fails(Agentic loop)
         if critique == "FAIL":
-            while retry_limit==2:
+            while retry_limit < 2:
                 print("Low confidence answer. Retrying with expanded query")
                 
                 expanded_query = rewritten_query+" detail explanation example..."
@@ -135,6 +137,7 @@ if __name__=="__main__":
         logger.info(f"RAGAS results are: {results}")
 
         ragas_service.evaluation_and_store(
+            run_id=run_id,
             query=query,
             rewritten_query=rewritten_query,
             answer=answer,
@@ -149,3 +152,4 @@ if __name__=="__main__":
                     "top_k": 8
                 }
         )
+        run_id +=1

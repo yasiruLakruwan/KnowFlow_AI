@@ -5,16 +5,16 @@ import uuid
 # Creating schema......
 
 def evaluation_document(
-        # run_id:str,
+        run_id:str,
         query:str,
         rewritten_query:str,
         answer:str,
         contexts:str,
         ragas_results:Dict[str,float],
-        metadata: Dict
+        metadata: Dict 
 ):
     return {
-        "run_id":str(uuid.uuid4()),
+        "run_id":run_id or str(uuid.uuid4()),
         "question":query,
         "rewritten_query":rewritten_query,
         "answer":answer,
