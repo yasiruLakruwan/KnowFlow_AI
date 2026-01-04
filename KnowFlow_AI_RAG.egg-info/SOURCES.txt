@@ -31,6 +31,7 @@ src/retrieval/retriever.py
 tests/__init__.py
 tests/test_directry_loader.py
 tests/test_pdf_loader.py
+tests/testing_database.py
 utils/__init__.py
 utils/embeding_model.py
 utils/helper_functions.py

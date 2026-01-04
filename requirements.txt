@@ -19,3 +19,4 @@ rank_bm25
 datasets
 pymongo
 google-generativeai
+uvicorn 
