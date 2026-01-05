@@ -32,12 +32,16 @@ class RagSevice:
     def chat(self,query:str,session_id:str):
         memory = self._get_memory(session_id)
         memory.user_messages(query)
+
         # Agent planing
+
         self.retry_limit = 2
+
         action = self.agents.plan_action(
             question = query,
             chat_history = memory.get()
         )
+
         if action == "rewrite_and_retrieve":
             while self.retry_limit<2:
                 rewritten_query = rewrite_query(
@@ -47,13 +51,19 @@ class RagSevice:
                 ) 
         else:
             rewritten_query = query
+
         # ------------Retrieval------------
+
         retriever = self.retrieve.basic_retriever()
         docs = self.retrieve.test_retrival(retriever,rewritten_query)
+
         contexts = [doc.page_content for doc in docs]
         context_builder = ContextBuilder(max_tokens=3000)
+
         context = context_builder.build(docs)
+
         #------Answer-------
+
         responce_genarator = ResponseGenarater()
         answer = responce_genarator(query,context)
         critique = self.agents.critique(
@@ -62,14 +72,18 @@ class RagSevice:
             answer = answer
         )
         memory.add_ai_message(answer)
+
         #--------RAGAS-------
+
         dataset = build_ragas_dataset(
             user_inputs=[query],
             responses=[answer],
             retrieved_contexts=[contexts],
             references=[""]
         )
+
         ragas_results = run_ragas(dataset,self.llm)
+        
         self.evaluation_service.evaluation_and_store(
             run_id=None or str(uuid.uuid4()),
             query = query,
