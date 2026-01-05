@@ -10,7 +10,7 @@ def evaluation_document(
         rewritten_query:str,
         answer:str,
         contexts:str,
-        ragas_results:Dict[str,float],
+        ragas_results:Dict,
         metadata: Dict 
 ):
     return {

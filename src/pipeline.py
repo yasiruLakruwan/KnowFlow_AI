@@ -65,7 +65,7 @@ if __name__=="__main__":
 
         if action=="rewrite_and_retrieve":
             # rewriting query.....
-            rewrite_query = rewrite_query(
+            rewritten_query = rewrite_query(
                 llm = llm,
                 question=query,
                 chat_history=memory.get()
@@ -134,6 +134,10 @@ if __name__=="__main__":
 
         results = run_ragas(dataset,llm)
         print(results)
+
+        score_dict = results.to_pandas().iloc[0].to_dict()
+
+
         logger.info(f"RAGAS results are: {results}")
 
         ragas_service.evaluation_and_store(
@@ -142,7 +146,7 @@ if __name__=="__main__":
             rewritten_query=rewritten_query,
             answer=answer,
             contexts=contexts,
-            ragas_results=results,
+            ragas_results=score_dict,
             metadata={
                     "retriever": "bm25 + chroma + rrf",
                     "reranker": "bge-reranker-large",
