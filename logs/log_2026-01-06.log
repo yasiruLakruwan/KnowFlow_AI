@@ -24,3 +24,15 @@
 2026-01-06 20:42:29,953 - INFO - AFC is enabled with max remote calls: 10.
 2026-01-06 20:42:33,237 - INFO - AFC is enabled with max remote calls: 10.
 2026-01-06 20:42:38,983 - INFO - RAGAS results are: {'context_precision': 0.0000, 'faithfulness': 0.5000, 'answer_relevancy': 0.9015}
+2026-01-06 21:13:48,871 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 21:13:49,908 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-06 21:13:49,981 - INFO - loading the vectorstore
+2026-01-06 21:13:49,981 - INFO - Loading existing vector database......
+2026-01-06 21:13:49,993 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-06 21:14:00,026 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-06 21:14:02,219 - INFO - db loaded successfully....
+2026-01-06 21:14:02,220 - INFO - Adding bm25 retriever...
+2026-01-06 21:14:02,307 - INFO - Combine retrievers using RRF(Production approach)
+2026-01-06 21:14:02,307 - INFO - Add BGE reranker (Second-stage reranking)
+2026-01-06 21:14:08,503 - INFO - Use pytorch device: cpu
+2026-01-06 21:14:11,994 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2

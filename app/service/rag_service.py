@@ -37,7 +37,7 @@ class RagSevice:
 
         self.retry_limit = 2
 
-        action = self.agents.plan_action(
+        action = self.agents.plan_aciton(
             question = query,
             chat_history = memory.get()
         )
@@ -64,8 +64,8 @@ class RagSevice:
 
         #------Answer-------
 
-        responce_genarator = ResponseGenarater()
-        answer = responce_genarator(query,context)
+        responce_genarator = ResponseGenarater() 
+        answer = responce_genarator.genarate(query,context)
         critique = self.agents.critique(
             question = query,
             context = context,
