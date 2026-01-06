@@ -12,7 +12,7 @@ def chat(
     payload:ChatRequest,
     rag_service:RagSevice = Depends(get_rag_service)
 ):
-    session_id = payload.session_id or str(uuid.uuid4)
+    session_id = payload.session_id or str(uuid.uuid4) 
 
     result = rag_service.chat(
         query=payload.query,
