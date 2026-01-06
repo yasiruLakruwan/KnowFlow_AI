@@ -33,6 +33,13 @@ def chat(
         ragas=result["ragas"]
     )
 
-@router.get("")
-def get_detail():
-    pass
+@router.get("/chat/{session_id}")
+def get_chat(session_id:str,rag_service:RagSevice=Depends(get_rag_service)):
+    memory = rag_service.memory_store.get(session_id)
+    
+    if not memory:
+        return f"Can not find {session_id}"
+    return {
+        "session_id": session_id,
+        "messages": memory.get()
+    }
