@@ -27,7 +27,7 @@ class RagSevice:
     def _get_memory(self,session_id:str):
         if session_id not in self.memory_store:
             self.memory_store[session_id] = ChatMemory()
-        return self.memory_store[session_id] 
+        return self.memory_store[session_id]  
     
     def chat(self,query:str,session_id:str):
         memory = self._get_memory(session_id)
@@ -83,14 +83,17 @@ class RagSevice:
         )
 
         ragas_results = run_ragas(dataset,self.llm)
-        
+
+        # convert ragas data in to database json format
+        score_dict = ragas_results.to_pandas().iloc[0].to_dict()
+
         self.evaluation_service.evaluation_and_store(
             run_id=None or str(uuid.uuid4()),
             query = query,
             rewritten_query=rewritten_query,
             answer = answer,
             contexts =contexts,
-            ragas_results=ragas_results,
+            ragas_results=score_dict,
             metadata = {
                 "retriever": "bm25 + chroma + rrf",
                 "reranker": "bge-reranker-large",

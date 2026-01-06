@@ -6,6 +6,13 @@ from app.service.rag_service import RagSevice
 
 router = APIRouter()
 
+
+@router.get("/home")
+# Home route for the API.......
+def home():
+    return "Welcome to rag application.......!"
+
+
 @router.post("/chat",response_model=ChatResponse)
 
 def chat(
@@ -26,3 +33,6 @@ def chat(
         ragas=result["ragas"]
     )
 
+@router.get("")
+def get_detail():
+    pass

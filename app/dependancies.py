@@ -16,5 +16,5 @@ def get_rag_service():
     repo = EvaluationRepository(mongo_provider.get_db())
     evaluation_service = EvaluationService(repo)
 
-    return RagSevice(evaluation_service)
+    return RagSevice(evaluation_service)        
 
