@@ -11,4 +11,5 @@ class ChatResponse(BaseModel):
     rewritten_query:str
     contexts: List[str]
     ragas:Dict
+
     
