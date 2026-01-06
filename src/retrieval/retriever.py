@@ -8,7 +8,7 @@ from langchain_community.retrievers import BM25Retriever
 from langchain_community.cross_encoders import HuggingFaceCrossEncoder
 from langchain_classic.retrievers.document_compressors import CrossEncoderReranker
 from langchain_classic.retrievers import ContextualCompressionRetriever
-from retrieval.context_builder import ContextBuilder
+from src.retrieval.context_builder import ContextBuilder
 #from llm.llm_client import LlmClient
 from src.answer_genaration.response_genarater import ResponseGenarater
 from utils.embeding_model import gemini_model

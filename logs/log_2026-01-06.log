@@ -1,0 +1,26 @@
+2026-01-06 20:41:09,533 - INFO - loading the vectorstore
+2026-01-06 20:41:09,534 - INFO - Loading existing vector database......
+2026-01-06 20:41:09,541 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-06 20:41:18,610 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-06 20:41:21,050 - INFO - db loaded successfully....
+2026-01-06 20:41:21,050 - INFO - Adding bm25 retriever...
+2026-01-06 20:41:21,126 - INFO - Combine retrievers using RRF(Production approach)
+2026-01-06 20:41:21,126 - INFO - Add BGE reranker (Second-stage reranking)
+2026-01-06 20:41:25,753 - INFO - Use pytorch device: cpu
+2026-01-06 20:41:48,255 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:41:49,429 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-06 20:42:04,641 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:42:05,786 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-06 20:42:05,791 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:42:06,989 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-06 20:42:07,301 - INFO - Use pytorch device_name: cpu
+2026-01-06 20:42:07,301 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-06 20:42:14,198 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:42:14,206 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:42:14,209 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:42:18,705 - WARNING - LLM returned 1 generations instead of requested 3. Proceeding with 1 generations.
+2026-01-06 20:42:23,949 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:42:23,952 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:42:29,953 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:42:33,237 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-06 20:42:38,983 - INFO - RAGAS results are: {'context_precision': 0.0000, 'faithfulness': 0.5000, 'answer_relevancy': 0.9015}

@@ -2,3 +2,7 @@ venv/
 .env
 tests/__pycache__/
 test_pdf/
+__pycache__/
+app/__pycache__/
+api/__pycache__/
+schemas/__pycache__/
