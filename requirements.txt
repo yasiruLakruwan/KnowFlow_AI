@@ -20,3 +20,4 @@ datasets
 pymongo
 google-generativeai
 uvicorn 
+fastapi

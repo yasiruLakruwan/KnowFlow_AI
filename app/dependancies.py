@@ -12,3 +12,9 @@ def get_rag_service():
         uri=os.getenv("CONNECTION_STRING"),
         db_name="rag_observability"
     )
+
+    repo = EvaluationRepository(mongo_provider.get_db())
+    evaluation_service = EvaluationService(repo)
+
+    return RagSevice(evaluation_service)
+

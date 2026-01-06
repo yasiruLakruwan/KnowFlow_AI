@@ -5,6 +5,15 @@ KnowFlow_AI_RAG.egg-info/SOURCES.txt
 KnowFlow_AI_RAG.egg-info/dependency_links.txt
 KnowFlow_AI_RAG.egg-info/requires.txt
 KnowFlow_AI_RAG.egg-info/top_level.txt
+app/__init__.py
+app/app.py
+app/dependancies.py
+app/api/__init__.py
+app/api/chat.py
+app/schemas/__init__.py
+app/schemas/chat.py
+app/service/__init__.py
+app/service/rag_service.py
 config/__init__.py
 config/path_config.py
 src/__init__.py
