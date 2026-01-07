@@ -73,7 +73,7 @@ class RagSevice:
         )
         memory.add_ai_message(answer)
 
-        #--------RAGAS-------
+        #--------RAGAS------- 
 
         dataset = build_ragas_dataset(
             user_inputs=[query],
@@ -86,7 +86,8 @@ class RagSevice:
 
         # convert ragas data in to database json format
         score_dict = ragas_results.to_pandas().iloc[0].to_dict()
-
+        print(f"The ragas results are: {score_dict}" )
+        
         self.evaluation_service.evaluation_and_store(
             run_id=None or str(uuid.uuid4()),
             query = query,

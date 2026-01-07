@@ -1,0 +1,76 @@
+2026-01-07 20:17:48,728 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:17:49,810 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-07 20:17:49,915 - INFO - loading the vectorstore
+2026-01-07 20:17:49,917 - INFO - Loading existing vector database......
+2026-01-07 20:17:49,926 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 20:18:02,425 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-07 20:18:04,908 - INFO - db loaded successfully....
+2026-01-07 20:18:04,908 - INFO - Adding bm25 retriever...
+2026-01-07 20:18:04,976 - INFO - Combine retrievers using RRF(Production approach)
+2026-01-07 20:18:04,976 - INFO - Add BGE reranker (Second-stage reranking)
+2026-01-07 20:18:10,260 - INFO - Use pytorch device: cpu
+2026-01-07 20:18:15,767 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
+2026-01-07 20:18:26,113 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:18:27,245 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-07 20:18:27,252 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:18:28,418 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-07 20:18:28,693 - INFO - Use pytorch device_name: cpu
+2026-01-07 20:18:28,693 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 20:18:38,080 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:18:38,090 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:18:38,092 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:18:42,821 - WARNING - LLM returned 1 generations instead of requested 3. Proceeding with 1 generations.
+2026-01-07 20:18:48,702 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:18:48,707 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:18:54,813 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:18:58,305 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:26:12,240 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:26:13,497 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-07 20:26:13,501 - INFO - loading the vectorstore
+2026-01-07 20:26:13,502 - INFO - Loading existing vector database......
+2026-01-07 20:26:13,511 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 20:26:22,887 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-07 20:26:23,163 - INFO - db loaded successfully....
+2026-01-07 20:26:23,163 - INFO - Adding bm25 retriever...
+2026-01-07 20:26:23,217 - INFO - Combine retrievers using RRF(Production approach)
+2026-01-07 20:26:23,217 - INFO - Add BGE reranker (Second-stage reranking)
+2026-01-07 20:26:27,516 - INFO - Use pytorch device: cpu
+2026-01-07 20:26:28,065 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
+2026-01-07 20:26:37,091 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:26:38,416 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-07 20:26:38,419 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:26:40,135 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-07 20:26:40,160 - INFO - Use pytorch device_name: cpu
+2026-01-07 20:26:40,160 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 20:26:47,069 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:26:47,074 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:26:47,077 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:26:49,375 - WARNING - LLM returned 1 generations instead of requested 3. Proceeding with 1 generations.
+2026-01-07 20:26:58,072 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:26:58,074 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:27:04,523 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 20:27:08,296 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 21:00:12,319 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 21:00:13,265 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-07 21:00:13,308 - INFO - loading the vectorstore
+2026-01-07 21:00:13,308 - INFO - Loading existing vector database......
+2026-01-07 21:00:13,377 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-07 21:00:21,892 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-07 21:00:24,196 - INFO - db loaded successfully....
+2026-01-07 21:00:24,197 - INFO - Adding bm25 retriever...
+2026-01-07 21:00:24,267 - INFO - Combine retrievers using RRF(Production approach)
+2026-01-07 21:00:24,267 - INFO - Add BGE reranker (Second-stage reranking)
+2026-01-07 21:00:30,058 - INFO - Use pytorch device: cpu
+2026-01-07 21:00:33,446 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
+2026-01-07 21:00:45,045 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-07 21:00:45,489 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-01-07 21:00:45,493 - INFO - Retrying google.genai._api_client.BaseApiClient._request_once in 1.2357957997305158 seconds as it raised ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 13.83909681s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash-lite'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '13s'}]}}.
+2026-01-07 21:00:46,963 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-01-07 21:00:46,969 - INFO - Retrying google.genai._api_client.BaseApiClient._request_once in 2.244540813322063 seconds as it raised ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 12.377053302s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash-lite', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '12s'}]}}.
+2026-01-07 21:00:49,446 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-01-07 21:00:49,449 - INFO - Retrying google.genai._api_client.BaseApiClient._request_once in 4.058577779221684 seconds as it raised ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 9.880570674s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash-lite', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '9s'}]}}.
+2026-01-07 21:00:53,805 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-01-07 21:00:53,810 - INFO - Retrying google.genai._api_client.BaseApiClient._request_once in 8.28867116729531 seconds as it raised ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 5.525904602s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash-lite'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '5s'}]}}.
+2026-01-07 21:01:02,802 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-01-07 21:01:02,806 - INFO - Retrying google.genai._api_client.BaseApiClient._request_once in 16.779823503762472 seconds as it raised ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite\nPlease retry in 56.525064821s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash-lite'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}.
+2026-01-07 21:01:20,006 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 429 Too Many Requests"
