@@ -1,6 +1,6 @@
 import uuid
 from fastapi import APIRouter,Depends
-from app.schemas.chat import ChatRequest,ChatResponse
+from app.schemas.chat import ChatRequest,ChatResponse, RagasMatrics
 from app.dependancies import get_rag_service
 from app.service.rag_service import RagSevice
 
@@ -30,7 +30,7 @@ def chat(
         answer=result["answer"],
         rewritten_query=result["rewritten_query"],
         contexts=result["contexts"],
-        ragas=result["ragas"]
+        ragas=RagasMatrics(**result["regas"])
     )
 
 @router.get("/chat/{session_id}")

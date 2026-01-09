@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel,ConfigDict
 from typing import List,Optional,Dict
 
 class ChatRequest(BaseModel):
@@ -7,8 +7,11 @@ class ChatRequest(BaseModel):
 
 class RagasMatrics(BaseModel):
     context_precision: float
+    context_recall:float
     faithfulness: float
     answer_relevancy: float
+
+    model_config = ConfigDict(extra="allow")
 
 class ChatResponse(BaseModel):
     session_id:str
