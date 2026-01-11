@@ -18,6 +18,6 @@ class ChatResponse(BaseModel):
     answer: str
     rewritten_query:str
     contexts: List[str]
-    ragas:RagasMatrics
+    #ragas:RagasMatrics
 
     

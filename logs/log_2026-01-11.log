@@ -1,0 +1,52 @@
+2026-01-11 15:57:47,668 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 15:57:49,101 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-11 15:57:49,131 - INFO - loading the vectorstore
+2026-01-11 15:57:49,131 - INFO - Loading existing vector database......
+2026-01-11 15:57:49,154 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 15:57:58,271 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-11 15:58:01,037 - INFO - db loaded successfully....
+2026-01-11 15:58:01,038 - INFO - Adding bm25 retriever...
+2026-01-11 15:58:01,250 - INFO - Combine retrievers using RRF(Production approach)
+2026-01-11 15:58:01,250 - INFO - Add BGE reranker (Second-stage reranking)
+2026-01-11 15:58:07,971 - INFO - Use pytorch device: cpu
+2026-01-11 15:58:12,679 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
+2026-01-11 15:58:30,098 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 15:58:31,479 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-11 15:58:31,485 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 15:58:33,054 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-11 15:58:33,413 - INFO - Use pytorch device_name: cpu
+2026-01-11 15:58:33,415 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 15:58:41,276 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 15:58:41,294 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 15:58:41,301 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 15:58:45,699 - WARNING - LLM returned 1 generations instead of requested 3. Proceeding with 1 generations.
+2026-01-11 15:58:51,290 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 15:58:51,296 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 15:58:57,276 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 15:59:01,236 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:04:40,320 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:04:41,414 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-11 16:04:41,421 - INFO - loading the vectorstore
+2026-01-11 16:04:41,421 - INFO - Loading existing vector database......
+2026-01-11 16:04:41,432 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 16:04:47,952 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2026-01-11 16:04:48,398 - INFO - db loaded successfully....
+2026-01-11 16:04:48,398 - INFO - Adding bm25 retriever...
+2026-01-11 16:04:48,462 - INFO - Combine retrievers using RRF(Production approach)
+2026-01-11 16:04:48,462 - INFO - Add BGE reranker (Second-stage reranking)
+2026-01-11 16:04:52,776 - INFO - Use pytorch device: cpu
+2026-01-11 16:04:56,473 - WARNING - No relevant docs were retrieved using the relevance score threshold 0.2
+2026-01-11 16:05:14,208 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:05:15,493 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-11 16:05:15,500 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:05:16,526 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+2026-01-11 16:05:16,874 - INFO - Use pytorch device_name: cpu
+2026-01-11 16:05:16,874 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2026-01-11 16:05:23,405 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:05:23,430 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:05:23,434 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:05:25,718 - WARNING - LLM returned 1 generations instead of requested 3. Proceeding with 1 generations.
+2026-01-11 16:05:31,892 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:05:34,609 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:05:40,715 - INFO - AFC is enabled with max remote calls: 10.
+2026-01-11 16:05:44,306 - INFO - AFC is enabled with max remote calls: 10.

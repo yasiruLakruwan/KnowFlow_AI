@@ -30,7 +30,7 @@ def chat(
         answer=result["answer"],
         rewritten_query=result["rewritten_query"],
         contexts=result["contexts"],
-        ragas=RagasMatrics(**result["regas"])
+        #ragas=RagasMatrics(**result["ragas"])
     )
 
 @router.get("/chat/{session_id}")
