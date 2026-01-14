@@ -8,26 +8,44 @@ type Message = {
 
 export default function ChatBox() {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState<string>("");
+  const [input, setInput] = useState("");
   const [sessionId, setSessionId] = useState<string | null>(
     localStorage.getItem("session_id")
   );
+  const [loading, setLoading] = useState(false);
 
   const handleSend = async () => {
-    if (!input) return;
+    if (!input || loading) return;
 
-    // add user message
+    setLoading(true);
+
+    // Add user message
     setMessages(prev => [...prev, { role: "user", text: input }]);
 
-    const response = await sendMessage(input, sessionId);
+    try {
+      const response = await sendMessage(input, sessionId);
 
-    // add assistant message
-    setMessages(prev => [
-      ...prev,
-      { role: "assistant", text: response.answer }
-    ]);
+      // Save session_id
+      setSessionId(response.session_id);
+      localStorage.setItem("session_id", response.session_id);
 
-    setInput("");
+      // Add assistant message
+      setMessages(prev => [
+        ...prev,
+        { role: "assistant", text: response.answer }
+      ]);
+    } catch (error) {
+      setMessages(prev => [
+        ...prev,
+        {
+          role: "assistant",
+          text: "⚠️ Something went wrong. Please try again."
+        }
+      ]);
+    } finally {
+      setInput("");
+      setLoading(false);
+    }
   };
 
   return (
@@ -51,12 +69,14 @@ export default function ChatBox() {
           value={input}
           onChange={e => setInput(e.target.value)}
           placeholder="Ask something..."
+          disabled={loading}
         />
         <button
           onClick={handleSend}
+          disabled={loading}
           className="bg-black text-white px-4 rounded"
         >
-          Send
+          {loading ? "Thinking..." : "Send"}
         </button>
       </div>
     </div>

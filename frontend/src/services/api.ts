@@ -13,7 +13,7 @@ export const sendMessage = async (
   query: string,
   sessionId: string | null
 ): Promise<ChatResponse> => {
-  const res = await api.post<ChatResponse>("/chat", {
+  const res = await api.post<ChatResponse>("/api/chat", {
     query,
     session_id: sessionId,
   });
